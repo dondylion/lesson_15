@@ -5,12 +5,11 @@ let inputSelector = document.querySelector('#selector'),
     btn = document.querySelector('button'),
     bottom = document.querySelector('.bottom');
 
-const DomElement = function() {
-    let selector = '',
-        height = '',
-        width = '',
-        bg = '',
-        fontSize = 0;
+const DomElement = function(height, width, bg, fontSize) {
+    this.height = height;
+    this.width = width;
+    this.bg = bg;
+    this.fontSize = fontSize;
 };
 
 DomElement.prototype.createElement = function() {
@@ -36,11 +35,7 @@ DomElement.prototype.createElement = function() {
     console.log(newElement);
 };
 
-const newObj = new DomElement();
+const newObj = new DomElement('50px', '100px', 'gold', '20px');
 const createStart = newObj.createElement.bind(newObj);
-newObj.height = '50px';
-newObj.width = '100px';
-newObj.bg = 'gold';
-newObj.fontSize = '20px';
 
 btn.addEventListener('click', createStart);
